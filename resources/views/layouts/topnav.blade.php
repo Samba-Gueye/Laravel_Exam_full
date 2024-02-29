@@ -73,21 +73,21 @@
                 <div class="dropdown mx-3 dropdown ml-2">
                     <a id="profileMenuInvoker" class="header-complex-invoker" href="#" aria-controls="profileMenu" aria-haspopup="true" aria-expanded="false" data-unfold-event="click" data-unfold-target="#profileMenu" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
                         <!--img class="avatar rounded-circle mr-md-2" src="#" alt="John Doe"-->
-                        <span class="mr-md-2 avatar-placeholder">A</span>
-                        <span class="d-none d-md-block">
+                        <span class="mr-md-2 avatar-placeholder">{{auth()->user()->name[0]}}</span>
+                        <span class="d-none d-md-block">{{auth()->user()->name}}</span>
                         <i class="gd-angle-down d-none d-md-block ml-2"></i>
                     </a>
 
                     <ul id="profileMenu" class="unfold unfold-user unfold-light unfold-top unfold-centered position-absolute pt-2 pb-1 mt-4 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="profileMenuInvoker" style="animation-duration: 300ms;">
                         <li class="unfold-item">
-                            <a class="unfold-link d-flex align-items-center text-nowrap" href="#">
+                            <a class="unfold-link d-flex align-items-center text-nowrap" href="{{route('profile')}}">
                     <span class="unfold-item-icon mr-3">
                       <i class="gd-user"></i>
                     </span>
                                 Mon Profil
                             </a>
                         </li>
-                        <form action="" method="post">
+                        <form action="{{route('logout')}}" method="post">
                                 @csrf
                                 @method('DELETE')
                             <li class="unfold-item unfold-item-has-divider">
@@ -95,7 +95,7 @@
                                     <span class="unfold-item-icon mr-3">
                                         <i class="gd-power-off"></i>
                                     </span>
-                                    Déconnexion
+                                    Sign Out
                                 </button>
                             </li>
                         </form>

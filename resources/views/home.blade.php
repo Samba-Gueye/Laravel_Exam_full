@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-6 col-xl-4 mb-3 mb-md-4">
                     <!-- Card -->
-                    <div class="card h-100">
+                    <div class="card h-70">
                         <div class="card-header d-flex">
                             <h5 class="h6 font-weight-semi-bold text-uppercase mb-0">SUV</h5>
                         </div>
@@ -26,7 +26,7 @@
                                 </div>
                             </div>
 
-                            <div class="js-area-chart chart chart--axis-x chart--points-invisible position-relative chart--labels-hidden">
+                            <div class="">
                                 <img  height="200" width="350" src="{{asset('img/BmwX4.jpg')}}">
                             </div>
                             <button type="submit" class="btn btn-toolbar">Voir details</button>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-6 col-xl-4 mb-3 mb-md-4">
                     <!-- Card -->
-                    <div class="card h-100">
+                    <div class="card h-70">
                         <div class="card-header d-flex">
                             <h5 class="h6 font-weight-semi-bold text-uppercase mb-0">Van</h5>
                         </div>
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
 
-                            <div class="js-area-chart chart chart--axis-x chart--points-invisible position-relative chart--labels-hidden">
+                            <div class="">
                                 <img  height="200" width="350" src="{{asset('img/models-Sprinter-Cargo.jpg')}}">
                             </div>
                             <button type="submit" class="btn btn-toolbar">Voir details</button>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-md-6 col-xl-4 mb-3 mb-md-4">
                     <!-- Card -->
-                    <div class="card h-100">
+                    <div class="card h-70">
                         <div class="card-header d-flex">
                             <h5 class="h6 font-weight-semi-bold text-uppercase mb-0">SUV Coupés</h5>
                         </div>
@@ -75,7 +75,7 @@
                                     </p>
                                 </div>
                             </div>
-                             <div class="js-area-chart chart chart--axis-x chart--points-invisible position-relative chart--labels-hidden">
+                             <div class="">
                                 <img  height="200" width="350" src="{{asset('img/Glc_43_coupe.jpg')}}">
                             </div>
                             <button type="submit" class="btn btn-toolbar">Voir details</button>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="col-md-6 col-xl-4 mb-3 mb-md-4">
                     <!-- Card -->
-                    <div class="card h-100">
+                    <div class="card h-70">
                         <div class="card-header d-flex">
                             <h5 class="h6 font-weight-semi-bold text-uppercase mb-0">Electriques</h5>
                         </div>
@@ -99,7 +99,7 @@
                                     </p>
                                 </div>
                             </div>
-                             <div class="js-area-chart chart chart--axis-x chart--points-invisible position-relative chart--labels-hidden">
+                             <div class="">
                                 <img  height="200" width="350" src="{{asset('img/AudiEtronGt.jpg')}}">
                             </div>
                             <button type="submit" class="btn btn-toolbar">Voir details</button>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="col-md-6 col-xl-4 mb-3 mb-md-4">
                     <!-- Card -->
-                    <div class="card h-100">
+                    <div class="card h-70">
                         <div class="card-header d-flex">
                             <h5 class="h6 font-weight-semi-bold text-uppercase mb-0">Sportives</h5>
                         </div>
@@ -123,7 +123,7 @@
                                     </p>
                                 </div>
                             </div>
-                             <div class="js-area-chart chart chart--axis-x chart--points-invisible position-relative chart--labels-hidden">
+                             <div class="">
                                 <img  height="200" width="350" src="{{asset('img/AudiS5.jpg')}}">
                             </div>
                             <button type="submit" class="btn btn-toolbar">Voir details</button>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="col-md-6 col-xl-4 mb-3 mb-md-4">
                     <!-- Card -->
-                    <div class="card h-100">
+                    <div class="card h-70">
                         <div class="card-header d-flex">
                             <h5 class="h6 font-weight-semi-bold text-uppercase mb-0">Sportives Classes</h5>
                         </div>
@@ -147,11 +147,10 @@
                                     </p>
                                 </div>
                             </div>
-                             <div class="js-area-chart chart chart--axis-x chart--points-invisible position-relative chart--labels-hidden">
+                             <div class="">
                                 <img  height="200" width="350" src="{{asset('img/AmgGt.jpg')}}">
                             </div>
                             <button type="submit" class="btn btn-toolbar">Voir details</button>
-
                         </div>
                     </div>
                     <!-- End Card -->
