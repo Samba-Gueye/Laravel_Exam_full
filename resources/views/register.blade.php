@@ -23,7 +23,6 @@
                                     <input type="text" class="form-control" id="name" name="name" required=""
                                            autofocus="">
                                 </div>
-
                                 <div class="form-group">
                                     <label for="email">Adresse Email</label>
                                     <input id="email" type="email" class="form-control" name="email" required="">

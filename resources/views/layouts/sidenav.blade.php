@@ -39,7 +39,7 @@
                         <a class="side-nav-menu-link" href="{{route('vehicule')}}">Liste des voitures</a>
                     </li>
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="">Ajouter une voiture</a>
+                        <a class="side-nav-menu-link" href="{{route('vehicule.create')}}">Ajouter une voiture</a>
                     </li>
                     <li class="side-nav-menu-item">
                         <a class="side-nav-menu-link" href="">Voitures en service</a>

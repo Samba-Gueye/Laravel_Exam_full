@@ -16,13 +16,13 @@ return new class extends Migration
             $table->string("marque");
             $table->string("modele");
             $table->string("type");
+            $table->string("matricule");
             $table->date("date_achat");
             $table->float("km_defaut");
             $table->float("prix_location");
-            $table->string("matricule");
             $table->string("chauffeur");
-            $table->boolean("etat");
-            $table->boolean("disponiblite");
+            $table->boolean("etat")->nullable();
+            $table->boolean("disponiblite")->nullable();
             $table->string("photo");
             $table->timestamps();
         });

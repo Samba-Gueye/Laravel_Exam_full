@@ -9,6 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+         $vehicule = Vehicule::get();
+        return view('home',compact('vehicule'));
     }
 }
