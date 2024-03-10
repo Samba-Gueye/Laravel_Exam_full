@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chauffeur;
 use App\Models\User;
 use App\Models\Vehicule;
 use Illuminate\Http\Request;
@@ -22,7 +23,8 @@ class VehiculeController extends Controller
      */
     public function create()
     {
-        return view('vehicule.create');
+        $chauffeur = Chauffeur::get();
+        return view('vehicule.create',compact('chauffeur'));
     }
 
     /**
@@ -31,7 +33,7 @@ class VehiculeController extends Controller
     /*public function store(Request $request)
     {
         Vehicule::create( $request->all());
-        return redirect()->route('profile');
+        return redirect()->route('vehicule');
     }*/
     public function store(Request $request)
     {

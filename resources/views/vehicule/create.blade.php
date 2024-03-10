@@ -57,10 +57,14 @@
                                     <input type="number" class="form-control" value="" id="prix_location" name="prix_location" placeholder="prix_location">
                                 </div>
                                 <div class="form-group col-12 col-md-4">
-                                    <label for="date">Chauffeur</label>
-                                    <input type="text" class="form-control" value="" id="chauffeur" name="chauffeur" placeholder="Nom chauffeur">
-                                </div>
-                                <div class="form-group col-12 col-md-4">
+                                    <label for="etat">Chauffeur</label>
+                                    <select class="form-control" name="chauffeur" >
+                                        <option >Selectionner un chauffeur</option>
+                                        @foreach($chauffeur as $chauffeur)
+                                            <option value="{{ $chauffeur->id }}">{{ $chauffeur->prenom }} {{ $chauffeur->nom }}</option>
+                                        @endforeach
+                                    </select>
+                                </div><div class="form-group col-12 col-md-4">
                                     <label for="etat">Condition Actuelle</label>
                                     <select class="form-control" name="etat" >
                                         <option value="true">En Marche</option>

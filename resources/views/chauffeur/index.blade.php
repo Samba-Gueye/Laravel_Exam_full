@@ -32,20 +32,15 @@
                                 <th class="font-weight-semi-bold border-top-0 py-2">Nom</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Expérience</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">N°Permis</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Categorie</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Etat</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Disponiblite</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-
-
+                            @foreach($chauffeur as $c)
                             <tr>
                                 <td class="py-3"></td>
-                                <td class="align-middle py-3">
-                                    tete
-                                </td>
                                 <td class="py-3"></td>
                                 <td class="py-3"></td>
                                 <td class="py-3"></td>
@@ -67,7 +62,7 @@
                                 </td>
 
                             </tr>
-
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

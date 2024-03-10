@@ -47,8 +47,10 @@ Route::group(['middleware'=> 'auth'], function () {
 
     });
     //Chauffeur
-    Route::controller(\App\Http\Controllers\ChauffeurController::class)->prefix('profile')->group(function () {
+    Route::controller(\App\Http\Controllers\ChauffeurController::class)->prefix('chauffeur')->group(function () {
         Route::get('/chauffeur','index')->name('chauffeur');
+        Route::get('create','create')->name('chauffeur.create');
+        Route::post('store','store')->name('chauffeur.store');
     });
 
 });

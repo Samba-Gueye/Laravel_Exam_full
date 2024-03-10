@@ -74,7 +74,7 @@
                         <a class="side-nav-menu-link" href="{{route('chauffeur')}}">Liste des Chauffeurs</a>
                     </li>
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="">Ajouter un chauffeur</a>
+                        <a class="side-nav-menu-link" href="{{route('chauffeur.create')}}">Ajouter un chauffeur</a>
                     </li>
                      <li class="side-nav-menu-item">
                         <a class="side-nav-menu-link" href="">Chauffeurs en service</a>
