@@ -39,16 +39,39 @@ Route::group(['middleware'=> 'auth'], function () {
     });
 
     //Véhicule
-    Route::controller(\App\Http\Controllers\VehiculeController::class)->prefix('vehicule')->group(function (){
-        Route::get('/vehicule','index')->name('vehicule');
-        Route::get('create','create')->name('vehicule.create');
-        Route::post('store','store')->name('vehicule.store');
+    Route::controller(\App\Http\Controllers\VehiculeController::class)->prefix('vehicule')->group(function () {
+        Route::get('/vehicule', 'index')->name('vehicule');
+        Route::get('/vehicule/details/{id}', 'show')->name('vehicule.details');
+        Route::get('/vehiculeEnlocation', 'EnLoc')->name('vehicule.EnLoc');
+        Route::get('/vehiculeAudepot', 'Audepot')->name('vehicule.Audepot');
+        Route::get('/vehiculeEnpanne', 'Enpanne')->name('vehicule.EnPanne');
+        Route::get('create', 'create')->name('vehicule.create');
+        Route::post('store', 'store')->name('vehicule.store');
+        Route::get('edit/{id}','edit')->name('vehicule.edit');
+        Route::put('edit/{id}','update')->name('vehicule.update');
+        Route::delete('destroy/{id}','destroy')->name('vehicule.destroy');
+
+
+    });
+
+        //Location
+    Route::controller(\App\Http\Controllers\LocationController::class)->prefix('location')->group(function (){
+        Route::get('/location','index')->name('location');
+        Route::get('create','create')->name('location.create');
+        Route::post('store','store')->name('location.store');
+        Route::get('edit/{id}','edit')->name('location.edit');
+        Route::put('edit/{id}','update')->name('location.update');
+        Route::delete('destroy/{id}','destroy')->name('location.destroy');
+
 
 
     });
     //Chauffeur
-    Route::controller(\App\Http\Controllers\ChauffeurController::class)->prefix('profile')->group(function () {
+    Route::controller(\App\Http\Controllers\ChauffeurController::class)->prefix('chauffeur')->group(function () {
         Route::get('/chauffeur','index')->name('chauffeur');
+        Route::get('create','create')->name('chauffeur.create');
+        Route::post('store','store')->name('chauffeur.store');
+        Route::get('/chauffeurDispo','chauffeurDispo')->name('chauffeur.Dispo');
     });
 
 });

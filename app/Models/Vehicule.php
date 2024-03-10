@@ -18,9 +18,13 @@ class Vehicule extends Model
         'km_defaut',
         'prix_location',
         'matricule',
-        'chauffeur',
+        'chauffeur_id',
         'etat',
         'disponiblite',
         'photo'
     ];
+    public function chauffeur()
+    {
+        return $this->belongsTo(Chauffeur::class);
+    }
 }

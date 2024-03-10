@@ -32,25 +32,27 @@
                                 <th class="font-weight-semi-bold border-top-0 py-2">Nom</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Expérience</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">N°Permis</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Categorie</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Etat</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Disponiblite</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Date d'emission</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Date d'expiration</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-
-
+                            @foreach($chauffeur as $c)
                             <tr>
-                                <td class="py-3"></td>
-                                <td class="align-middle py-3">
-                                    tete
+                                <td class="py-3">{{$c->prenom}}</td>
+                                <td class="py-3">{{$c->nom}}</td>
+                                <td class="py-3">{{$c->experience}} ans</td>
+                                <td class="py-3">{{$c->num_permis}}</td>
+                                <td class="py-3">{{$c->etat}}</td>
+                                <td class="py-3 {{ $c->disponiblite === 'Disponible' ? 'badge badge-pill badge-success' : 'badge badge-pill badge-danger' }}">
+                                    <center>{{$c->disponiblite}}</center>
                                 </td>
-                                <td class="py-3"></td>
-                                <td class="py-3"></td>
-                                <td class="py-3"></td>
-                                <td class="py-3"></td>
-                                <td class="py-3"></td>
+
+                                <td class="py-3">{{$c->emission}}</td>
+                                <td class="py-3">{{$c->expiration}}</td>
                                 <td class="py-3">
                                     <div class="position-relative">
                                         <a class="link-dark d-inline-block" href="">
@@ -67,7 +69,7 @@
                                 </td>
 
                             </tr>
-
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

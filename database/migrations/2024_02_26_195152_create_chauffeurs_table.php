@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string("experience");
             $table->string("num_permis");
             $table->string("emission");
-            $table->string("categorie_vehicule");
-            $table->boolean("etat");
-            $table->boolean("disponiblite");
+            $table->string("expiration");
+            $table->string("etat");
+            $table->string("disponiblite");
             $table->timestamps();
         });
     }

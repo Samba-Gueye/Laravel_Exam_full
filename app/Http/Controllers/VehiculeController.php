@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chauffeur;
 use App\Models\User;
 use App\Models\Vehicule;
 use Illuminate\Http\Request;
@@ -13,7 +14,8 @@ class VehiculeController extends Controller
      */
     public function index()
     {
-        $vehicule = Vehicule::get();
+
+        $vehicule = Vehicule::with('chauffeur')->get();
         return view('vehicule.index',compact('vehicule'));
     }
 
@@ -22,7 +24,8 @@ class VehiculeController extends Controller
      */
     public function create()
     {
-        return view('vehicule.create');
+        $chauffeurs = Chauffeur::all();
+        return view('vehicule.create', ['chauffeurs' => $chauffeurs]);
     }
 
     /**
@@ -31,7 +34,7 @@ class VehiculeController extends Controller
     /*public function store(Request $request)
     {
         Vehicule::create( $request->all());
-        return redirect()->route('profile');
+        return redirect()->route('vehicule');
     }*/
     public function store(Request $request)
     {
@@ -43,11 +46,9 @@ class VehiculeController extends Controller
         $vhl->date_achat=$request['date_achat'];
         $vhl->km_defaut=$request['km_defaut'];
         $vhl->prix_location=$request['prix_location'];
-        $vhl->chauffeur=$request['chauffeur'];
-        $etat = $request[($_POST['etat'] === 'true') ? 1 : 0];
-        $vhl->etat=$etat;
-        $disponiblite = $request[($_POST['disponiblite'] === 'true') ? 1 : 0];
-        $vhl->disponiblite=$disponiblite;
+        $vhl->chauffeur_id = $request['chauffeur'];
+        $vhl->etat= $request['etat'];
+        $vhl->disponibilite= $request['disponibilite'];
         $photo= time().'.'.$request->photo->extension();
         $request->photo->move(public_path('photos'),$photo);
 
@@ -59,9 +60,10 @@ class VehiculeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        return view("liste-vehicules");
+        $vehicule = Vehicule::findOrFail($id);
+        return view('vehicule.details', ['vehicule' => $vehicule]);
     }
 
     /**
@@ -69,7 +71,9 @@ class VehiculeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $vehicule = Vehicule::findorFail($id);
+        $chauffeurs = Chauffeur::all();
+        return view('vehicule.edit',compact('vehicule','chauffeurs'));
     }
 
     /**
@@ -77,7 +81,9 @@ class VehiculeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $vehicule = Vehicule::findorFail($id);
+        $vehicule->update($request->all());
+        return redirect()->route('vehicule');
     }
 
     /**
@@ -85,6 +91,25 @@ class VehiculeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $vehicule = Vehicule::findorFail($id);
+        $vehicule->delete();
+        return redirect()->route('vehicule');
     }
+
+    public function EnLoc()
+    {
+        $vehicule = Vehicule::with('chauffeur')->get();
+        return view('vehicule.Enloc',compact('vehicule'));
+    }
+    public function Audepot()
+    {
+        $vehicule = Vehicule::with('chauffeur')->get();
+        return view('vehicule.EnStock',compact('vehicule'));
+    }
+    public function Enpanne()
+    {
+        $vehicule = Vehicule::with('chauffeur')->get();
+        return view('vehicule.Enpanne',compact('vehicule'));
+    }
+
 }

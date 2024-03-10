@@ -11,15 +11,15 @@
                     <nav class="d-none d-md-block" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="#">Véhicules</a>
+                                <a href="#">Chauffeurs</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Liste des véhicules</li>
+                            <li class="breadcrumb-item active" aria-current="page">Liste des Chauffeurs</li>
                         </ol>
                     </nav>
                     <!-- End Breadcrumb -->
 
                     <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                        <div class="h3 mb-0">Liste des véhicules</div>
+                        <div class="h3 mb-0">Liste des Chauffeurs</div>
                     </div>
 
 
@@ -28,37 +28,38 @@
                         <table class="table text-nowrap mb-0">
                             <thead>
                             <tr>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Marque</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Modéle</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Matricule</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Type</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Date d'achat</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Chauffeur</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Prénom</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Nom</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Expérience</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">N°Permis</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Etat</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Dispo</th>
-                                @if(auth()->user()->email==="sambagueye326@gmail.com")
+                                <th class="font-weight-semi-bold border-top-0 py-2">Disponiblite</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Date d'emission</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Date d'expiration</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Actions</th>
-                                @endif
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($vehicule as $vehicule)
+                            @foreach($chauffeur as $c)
+                                @if($c->disponiblite ==='Disponible')
                             <tr>
-                                <td class="py-3">{{$vehicule->marque}}</td>
-                                <td class="py-3">{{$vehicule->modele}}</td>
-                                <td class="py-3">{{$vehicule->matricule}}</td>
-                                <td class="py-3">{{$vehicule->type}}</td>
-                                <td class="py-3">{{$vehicule->date_achat}}</td>
-                                <td class="py-3">{{ $vehicule->chauffeur ? $vehicule->chauffeur->prenom . ' ' . $vehicule->chauffeur->nom : 'Aucun chauffeur' }}</td>
-                                <td class="py-3 {{ $vehicule->etat === 'En marche' ? 'badge badge-pill badge-success' : 'badge badge-pill badge-danger' }} ">{{$vehicule->etat}}</td>
-                                <td class="py-3">{{$vehicule->disponibilite}}</td>
-                                @if(auth()->user()->email==="sambagueye326@gmail.com")
-                                    <td class="py-3">
+                                <td class="py-3">{{$c->prenom}}</td>
+                                <td class="py-3">{{$c->nom}}</td>
+                                <td class="py-3">{{$c->experience}} ans</td>
+                                <td class="py-3">{{$c->num_permis}}</td>
+                                <td class="py-3">{{$c->etat}}</td>
+                                <td class="py-3 {{ $c->disponiblite === 'Disponible' ? 'badge badge-pill badge-success' : 'badge badge-pill badge-danger' }}">
+                                    <center>{{$c->disponiblite}}</center>
+                                </td>
+
+                                <td class="py-3">{{$c->emission}}</td>
+                                <td class="py-3">{{$c->expiration}}</td>
+                                <td class="py-3">
                                     <div class="position-relative">
-                                        <a class="link-dark d-inline-block" type="button" href="{{route('vehicule.edit',$vehicule->id)}}">
+                                        <a class="link-dark d-inline-block" href="">
                                             <i class="gd-pencil icon-text"></i>
                                         </a>
-                                        <form action="{{route('vehicule.destroy',$vehicule->id)}}" method="post" type="button">
+                                        <form action="" method="post" type="button">
                                             @csrf
                                             @method('DELETE')
                                             <button  style="background: none; color: inherit; border: none; padding: 0; font: inherit; cursor: pointer; outline: inherit;" class="link-dark d-inline-block" >
@@ -67,10 +68,9 @@
                                         </form>
                                     </div>
                                 </td>
-                                @endif
-
 
                             </tr>
+                            @endif
                             @endforeach
                             </tbody>
                         </table>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chauffeur;
+use App\Models\Vehicule;
 use Illuminate\Http\Request;
 
 class ChauffeurController extends Controller
@@ -22,7 +23,7 @@ class ChauffeurController extends Controller
      */
     public function create()
     {
-        //
+        return view('chauffeur.create');
     }
 
     /**
@@ -30,7 +31,8 @@ class ChauffeurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Chauffeur::create( $request->all());
+        return redirect()->route('chauffeur');
     }
 
     /**
@@ -63,5 +65,10 @@ class ChauffeurController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function chauffeurDispo()
+    {
+        $chauffeur = Chauffeur::get();
+        return view('chauffeur.dispo',compact('chauffeur'));
     }
 }

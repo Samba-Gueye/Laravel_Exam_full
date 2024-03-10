@@ -13,14 +13,21 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string("client");
             $table->string("lieu_depart");
             $table->string("lieu_arrive");
-            $table->dateTime("date_debut");
-            $table->dateTime("date_fin");
-            $table->string("vehicule");
+            $table->date("date_debut");
+            $table->date("date_fin");
+            $table->unsignedBigInteger("chauffeur_id")->nullable(); // Clé étrangère
+            $table->unsignedBigInteger("vehicule_id")->nullable(); // Clé étrangère
             $table->float("montant");
             $table->timestamps();
+            $table->float("distance");
+            $table->float("prix_location");
+
+            //Clée etrangéres
+
+            $table->foreign('chauffeur_id')->references('id')->on('chauffeurs')->onDelete('set null');
+            $table->foreign('vehicule_id')->references('id')->on('vehicules')->onDelete('set null');
         });
     }
 

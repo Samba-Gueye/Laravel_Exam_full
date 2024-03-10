@@ -29,13 +29,14 @@
                              <div class="">
                                 <img  height="200" width="350" src="photos/{{$vehicule->photo}}">
                             </div>
-                            <a type="submit" class="btn btn-toolbar" href="{{route('vehicule')}}">Voir details</a>
+                            <a type="submit" class="btn btn-toolbar" href="{{route('vehicule.details', ['id' => $vehicule->id]) }}">Voir details</a>
                         </div>
                     </div>
                     <!-- End Card -->
                 </div>
                 @endforeach
                 </div>
+
 
         </div>
 

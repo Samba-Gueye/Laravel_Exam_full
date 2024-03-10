@@ -13,48 +13,49 @@
                             <li class="breadcrumb-item">
                                 <a href="{{route('vehicule')}}">Véhicules</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Enregistrement d'un véhicule</li>
+                            <li class="breadcrumb-item active" aria-current="page">Modification d'un véhicule</li>
                         </ol>
                     </nav>
                     <!-- End Breadcrumb -->
 
                     <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                        <div class="h3 mb-0">Ajouter un véhicule</div>
+                        <div class="h3 mb-0">Modifier un véhicule</div>
                     </div>
 
 
                     <!-- Form -->
                     <div>
-                        <form action="{{route('vehicule.store')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('vehicule.update',$vehicule->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-4">
                                     <label for="name">Marque</label>
-                                    <input type="text" class="form-control" value="" id="marque" name="marque" placeholder="marque">
+                                    <input type="text" class="form-control" value="{{$vehicule->marque}}" id="marque" name="marque" placeholder="marque">
                                 </div>
                                 <div class="form-group col-12 col-md-4">
                                     <label for="name">Modéle</label>
-                                    <input type="text" class="form-control" value="" id="modele" name="modele" placeholder="modéle">
+                                    <input type="text" class="form-control" value="{{$vehicule->modele}}" id="modele" name="modele" placeholder="modéle">
                                 </div>
                                 <div class="form-group col-12 col-md-4">
                                     <label for="Type">Type</label>
-                                    <input type="text" class="form-control" value="" id="type" name="type" placeholder="type">
+                                    <input type="text" class="form-control" value="{{$vehicule->type}}" id="type" name="type" placeholder="type">
                                 </div>
                                 <div class="form-group col-12 col-md-4">
                                     <label for="name">Matricule</label>
-                                    <input type="text" class="form-control" value="" id="matricule" name="matricule" placeholder="matricule">
+                                    <input type="text" class="form-control" value="{{$vehicule->matricule}}" id="matricule" name="matricule" placeholder="matricule">
                                 </div>
                                 <div class="form-group col-12 col-md-4">
                                     <label for="date">Date d'achat</label>
-                                    <input type="datetime-local" class="form-control" value="" id="date_achat" name="date_achat" placeholder="Date d'achat">
+                                    <input type="datetime-local" class="form-control" value="{{$vehicule->date_achat}}" id="date_achat" name="date_achat" placeholder="Date d'achat">
                                 </div>
                                 <div class="form-group col-12 col-md-4">
                                     <label for="name">Kilométrage</label>
-                                    <input type="number" class="form-control" value="" id="km_defaut" name="km_defaut" placeholder="Kilometrage">
+                                    <input type="number" class="form-control" value="{{$vehicule->km_defaut}}" id="km_defaut" name="km_defaut" placeholder="Kilometrage">
                                 </div>
                                 <div class="form-group col-12 col-md-4">
                                     <label for="name">Prix de Location</label>
-                                    <input type="number" class="form-control" value="" id="prix_location" name="prix_location" placeholder="prix_location">
+                                    <input type="number" class="form-control" value="{{$vehicule->prix_location}}" id="prix_location" name="prix_location" placeholder="prix_location">
                                 </div>
                                 <div class="form-group col-12 col-md-4">
                                     <label for="etat">Chauffeur</label>
@@ -82,12 +83,6 @@
                                     </select>
                                 </div>
 
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-12 col-md-4">
-                                    <label for="document">Photo</label>
-                                    <input type="file" class="form-control" value="" id="photo" name="photo" placeholder="photo">
-                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary float-right">Enregistrer</button>
                         </form>

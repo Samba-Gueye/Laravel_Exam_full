@@ -15,6 +15,17 @@
                     <span class="side-nav-fadeout-on-closed media-body">Notre Cataloge</span>
                 </a>
             </li>
+            @if(auth()->user()->email=="sambagueye326@gmail.com")
+                <li class="side-nav-menu-item">
+                <a class="side-nav-menu-link media align-items-center" href="{{route('location')}}" >
+              <span class="side-nav-menu-icon d-flex mr-3">
+                <i class="gd-check-box"></i>
+              </span>
+                    <span class="side-nav-fadeout-on-closed media-body">Location</span>
+                </a>
+            </li>
+            @endif
+
 
             <!-- Title -->
             <li class="sidebar-heading h6">Gestion</li>
@@ -38,17 +49,22 @@
                     <li class="side-nav-menu-item">
                         <a class="side-nav-menu-link" href="{{route('vehicule')}}">Liste des voitures</a>
                     </li>
+                    @if(auth()->user()->email=="sambagueye326@gmail.com")
                     <li class="side-nav-menu-item">
                         <a class="side-nav-menu-link" href="{{route('vehicule.create')}}">Ajouter une voiture</a>
                     </li>
+                    @endif
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="">Voitures en service</a>
+                        <a class="side-nav-menu-link" href="{{route('vehicule.EnLoc')}}">Voitures en service</a>
                     </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="">Voiture en panne</a>
+                    @if(auth()->user()->email=="sambagueye326@gmail.com")
+                        <li class="side-nav-menu-item">
+                        <a class="side-nav-menu-link" href="{{route('vehicule.EnPanne')}}">Voiture en panne</a>
                     </li>
+                    @endif
+
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="">Voitures disponibles</a>
+                        <a class="side-nav-menu-link" href="{{route('vehicule.Audepot')}}">Voitures disponibles</a>
                     </li>
 
                 </ul>
@@ -73,17 +89,13 @@
                     <li class="side-nav-menu-item">
                         <a class="side-nav-menu-link" href="{{route('chauffeur')}}">Liste des Chauffeurs</a>
                     </li>
+                    @if(auth()->user()->email=="sambagueye326@gmail.com")
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="">Ajouter un chauffeur</a>
+                        <a class="side-nav-menu-link" href="{{route('chauffeur.create')}}">Ajouter un chauffeur</a>
                     </li>
+                    @endif
                      <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="">Chauffeurs en service</a>
-                    </li>
-                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="">Chauffeurs disponibles</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="">Chauffeurs disponibles</a>
+                        <a class="side-nav-menu-link" href="{{route('chauffeur.Dispo')}}">Chauffeurs disponibles</a>
                     </li>
 
                 </ul>
